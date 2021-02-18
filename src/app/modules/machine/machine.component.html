@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">Machine</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table" *ngIf="machines && machines.length">
+        <thead>
+          <tr>
+            <th>Sr.No.</th>
+            <th>Machine Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let machine of machines">
+            <td>{{ machine.id }}</td>
+            <td>{{ machine.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

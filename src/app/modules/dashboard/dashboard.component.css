@@ -1,0 +1,9 @@
+
+/deep/ .mat-slide-toggle-bar {
+  height: 18px !important;
+
+}
+/deep/ .mat-slide-toggle-thumb {
+  height: 22px !important;
+  width: 22px !important;
+}

@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="flex-container">
+    <h1 style="text-align: center">Sensor</h1>
+    <mat-card class="Filter_Area">
+      <mat-card-content>
+        <div class="submit_button" align="Left" style="margin-bottom: 10px">
+          <button mat-raised-button color="primary">+Add Sensor</button>
+        </div>
+        <div></div>
+
+        <mat-table #table [dataSource]="dataSource">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          </ng-container>
+
+          <!-- Sensor Name Column -->
+          <ng-container matColumnDef="sensorName">
+            <mat-header-cell *matHeaderCellDef> Sensor Name </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Sensor Name" [value]="element.sensorName" [(ngModel)]="element.sensorName">
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+
+          <!-- unit Column -->
+          <ng-container matColumnDef="unit">
+            <mat-header-cell *matHeaderCellDef> Unit </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="unit" [value]="element.unit" [(ngModel)]="element.unit">
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+
+          <!-- scalingMin Column -->
+          <ng-container matColumnDef="scalingMin">
+            <mat-header-cell *matHeaderCellDef> Scaling Min </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Scaling Min" [value]="element.scalingMin" [(ngModel)]="element.scalingMin">
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+
+          <!-- scalingMax Column -->
+          <ng-container matColumnDef="scalingMax">
+            <mat-header-cell *matHeaderCellDef> Scaling Max </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Scaling Max" [value]="element.scalingMax" [(ngModel)]="element.scalingMax">
+              </mat-form-field>
+            </mat-cell>
+          </ng-container>
+
+
+          <!-- Edit Column -->
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button>
+                  <mat-icon>save</mat-icon>
+                </button>
+              <button mat-icon-button>
+                  <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+          </ng-container>
+
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

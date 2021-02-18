@@ -1,0 +1,71 @@
+<h1 align="center">
+  Data Collection <mat-slide-toggle color="primary"></mat-slide-toggle>
+</h1>
+<div class="container">
+  <div class="flex-container">
+    <mat-card class="Filter_Area">
+      <mat-card-content>
+        <mat-table #table [dataSource]="dataSource" fxFlex>
+          <!-- Machine Column -->
+          <ng-container matColumnDef="machine" fxFlex>
+            <mat-header-cell *matHeaderCellDef> Machine </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-select fxFlex placeholder="Machine Name">
+                <mat-option value="element.machine">{{
+                  element.machine
+                }}</mat-option>
+              </mat-select>
+            </mat-cell>
+          </ng-container>
+
+          <!-- sensor Column -->
+          <ng-container matColumnDef="sensor" fxFlex>
+            <mat-header-cell *matHeaderCellDef> Sensor </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-select fxFlex placeholder="Sensor Name">
+                <mat-option value="element.sensor">{{
+                  element.sensor
+                }}</mat-option>
+              </mat-select>
+            </mat-cell>
+          </ng-container>
+
+          <!-- from Column -->
+          <ng-container matColumnDef="from">
+            <mat-header-cell *matHeaderCellDef> From </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder="Choose From date"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-cell>
+          </ng-container>
+
+          <!-- to Column -->
+          <ng-container matColumnDef="to" fxFlex>
+            <mat-header-cell *matHeaderCellDef> To </mat-header-cell>
+            <mat-cell *matCellDef="let element"><input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Choose to date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

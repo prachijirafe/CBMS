@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="flex-container">
+    <h1 style="text-align: center">Channel Configuration</h1>
+    <mat-card class="Filter_Area">
+      <mat-card-content>
+        <div></div>
+
+        <mat-table #table [dataSource]="dataSource" fxFlex>
+          <!-- Position Column -->
+          <ng-container matColumnDef="position" fxFlex>
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.position }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Channel Name Column -->
+          <ng-container matColumnDef="channelName" fxFlex>
+            <mat-header-cell *matHeaderCellDef> Channel Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"
+              >{{ element.channelName }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Machine Column -->
+          <ng-container matColumnDef="machine" fxFlex>
+            <mat-header-cell *matHeaderCellDef> Machine </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-select fxFlex placeholder="Machine Name">
+                <mat-option value="element.machine">{{
+                  element.machine
+                }}</mat-option>
+              </mat-select>
+            </mat-cell>
+          </ng-container>
+
+          <!-- sensor Column -->
+          <ng-container matColumnDef="sensor" fxFlex>
+            <mat-header-cell *matHeaderCellDef> Sensor </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-select  fxFlex placeholder="Sensor Name">
+                <mat-option value="element.sensor" >{{
+                  element.sensor
+                }}</mat-option>
+              </mat-select>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
